@@ -1,12 +1,10 @@
 package com.example.demo;
 
-import org.hibernate.annotations.Fetch;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+
 
 @Entity
 @Table(name="User_Data")
@@ -27,8 +25,8 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "enabled")
-    private boolean enabled;
+  //TODO: add telephone number
+  //TODO: Billi has removed the enabled as we dont need it
 
     @Column(name = "username")
     private String username;
@@ -50,7 +48,7 @@ public class User {
         this.setPassword(password);
         this.setFirstName(firstName);
         this.setLastName(lastName);
-        this.setEnabled(enabled);
+  //TODO: add respective changes
         this.setUsername(username);
     }
 
@@ -95,13 +93,6 @@ public class User {
         this.lastName = lastName;
     }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
 
     public String getUsername() {
         return username;

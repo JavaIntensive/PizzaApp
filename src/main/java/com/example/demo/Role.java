@@ -2,7 +2,6 @@ package com.example.demo;
 
 import javax.persistence.*;
 import java.util.Collection;
-
 @Entity
 public class Role {
     @Id
@@ -14,11 +13,8 @@ public class Role {
 
     @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     private Collection<User> users;
-
     public Role() {
-
     }
-
     public Role(String role) {
         this.role = role;
     }

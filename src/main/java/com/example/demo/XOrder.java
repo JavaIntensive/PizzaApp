@@ -1,27 +1,30 @@
 package com.example.demo;
 
-import org.springframework.lang.Nullable;
-
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.Set;
+import java.time.LocalDate;
+
 
 @Entity
 public class XOrder {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
+    private LocalDate dateTime;
+    private String toppings;
+    //TODO: price as double
+    //TODO: in the html template
+    // Add path for javascript / css from bootstrap
+    // add thymeleaf on top
+    // add navigation bootstrap
+    // everything you think we need to have
+    // then we will see together
+    // add readme file if you can
 
-//    private String dough;
-
-    //    @Size(min = 3)
-    private String dough;
+     /* private String dough;
 
     private String sauce;
 
@@ -37,85 +40,37 @@ public class XOrder {
     private String mushroom;
 
     @Nullable
-    private String tomato;
+    private String tomato;*/
 
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
     public XOrder() {
-//        user = new User();
+       dateTime= LocalDate.now();
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getDough() {
-        return dough;
+    public LocalDate getDateTime() {
+        return dateTime;
     }
 
-    public void setDough(String dough) {
-        this.dough = dough;
-    }
-    public String getSauce() {
-        return sauce;
+    public void setDateTime(LocalDate dateTime) {
+        this.dateTime = dateTime;
     }
 
-    public void setSauce(String sauce) {
-        this.sauce = sauce;
+    public String getToppings() {
+        return toppings;
     }
 
-    public String getCheese() {
-        return cheese;
-    }
-
-    public void setCheese(String cheese) {
-        this.cheese = cheese;
-    }
-
-
-    public String getSpinach() {
-        return spinach;
-    }
-
-    public void setSpinach(String spinach) {
-        this.spinach = spinach;
-    }
-
-    public String getBacon() {
-        return bacon;
-    }
-
-    public void setBacon(String bacon) {
-        this.bacon = bacon;
-    }
-
-    public String getMushroom() {
-        return mushroom;
-    }
-
-    public void setMushroom(String mushroom) {
-        this.mushroom = mushroom;
-    }
-
-    public String getTomato() {
-        return tomato;
-    }
-
-    public void setTomato(String tomato) {
-        this.tomato = tomato;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+    public void setToppings(String toppings) {
+        this.toppings = toppings;
     }
 }
